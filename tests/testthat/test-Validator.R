@@ -239,3 +239,28 @@ describe("When input |> validate[['Is.Not.Empty']]()",{
     input |> validate[['Is.Not.Empty']]() |> expect.equal(input)
   })
 })
+
+describe("When input |> validate[['Has.One.Row']]()",{
+  it("then no exception is thrown if input has one row",{
+    # Given
+    validate <- Validator()
+    
+    # When
+    input <- data.frame(var = 1)  
+    
+    # Then
+    input |> validate[['Has.One.Row']]() |> expect.no.error()
+  })
+  it("then an exception is thrown if input does not have one row",{
+    # Given
+    validate <- Validator()
+    
+    expected.error <- "Rows.Invalid: Got 2 rows but expected 1 rows."
+    
+    # When
+    input <- data.frame(var = 1:2) 
+    
+    # Then
+    input |> validate[['Has.One.Row']]() |> expect.error(expected.error)
+  })
+})
