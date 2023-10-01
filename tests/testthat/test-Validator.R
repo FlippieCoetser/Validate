@@ -263,4 +263,14 @@ describe("When input |> validate[['Has.One.Row']]()",{
     # Then
     input |> validate[['Has.One.Row']]() |> expect.error(expected.error)
   })
+  it("then input is returned if input has one row",{
+    # Given
+    validate <- Validator()
+    
+    # When
+    input <- data.frame(var = 1)  
+    
+    # Then
+    input |> validate[['Has.One.Row']]() |> expect.equal(input)
+  })
 })
