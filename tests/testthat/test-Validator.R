@@ -158,4 +158,14 @@ describe("When input |> validate[['Is.Character']]()",{
     # Then
     input |> validate[['Is.Character']]() |> expect.error(expected.error)
   })
+  it("then input is returned if input is character",{
+    # Given
+    validate <- Validator()
+    
+    # When
+    input <- ''  
+    
+    # Then
+    input |> validate[['Is.Character']]() |> expect.equal(input)
+  })
 })
