@@ -14,7 +14,10 @@ Validator <- \() {
     input |> is.character() |> isFALSE() |> exception[['Type.Mismatch']](input |> class(), 'character')
     return(input)
   }
-  validators[['Is.Empty']]      <- \() {}
+  validators[['Is.Empty']]      <- \(input) {
+    actual.rows <- input |> nrow()
+    actual.rows |> (\(x) x == 0)() |> isFALSE() |> exception[['Rows.Invalid']](actual.rows,0)
+  }
   validators[['Is.Not.Empty']]  <- \() {}
   validators[['Has.One.Row']]   <- \() {}
   validators[['Is.UUID']]       <- \() {}
