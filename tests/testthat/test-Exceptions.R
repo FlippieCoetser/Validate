@@ -103,3 +103,28 @@ describe("When input |> exception[['Type.Mismatch']]()", {
     input |> exception[['Type.Mismatch']](actual, expected) |> expect.error(expected.error)
   })
 })
+
+describe("When input |> exception[['Argument.NULL']]()", {
+  it("then no exception is thrown if input is FALSE", {
+    # Given
+    exception <- Exceptions()
+    
+    # When
+    input <- FALSE
+    
+    # Then
+    input |> exception[['Argument.NULL']]() |> expect.no.error()
+  })
+  it("then an exception is thrown if input is TRUE", {
+    # Given
+    exception <- Exceptions()
+    
+    argument <- 'argument'
+    expected.error <- paste0("Argument.NULL: '", argument, "' cannot not be NULL.")
+    # When
+    input <- TRUE
+    
+    # Then
+    input |> exception[['Argument.NULL']](argument) |> expect.error(expected.error)
+  })
+})
