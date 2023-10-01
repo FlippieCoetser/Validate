@@ -299,4 +299,14 @@ describe("When input |> validate[['Is.UUID']]()",{
     # Then
     input |> validate[['Is.UUID']](identifier) |> expect.error(expected.error)
   })
+  it("then input is returned if input is UUID",{
+    # Given
+    validate <- Validator()
+    
+    # When
+    input <- uuid::UUIDgenerate()  
+    
+    # Then
+    input |> validate[['Is.UUID']]() |> expect.equal(input)
+  })
 })
