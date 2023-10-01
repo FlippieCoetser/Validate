@@ -7,5 +7,6 @@ Exceptions <- \() {
   exceptions[['Entity.Invalid']]  <- \() { }
   exceptions[['Entity.NotFound']] <- \() { }
   exceptions[['Entity.Exists']]   <- \() { }
+  exceptions[['Rows.Invalid']]    <- \() { }
   return(exceptions)
 }
