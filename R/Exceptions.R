@@ -4,7 +4,9 @@ Exceptions <- \() {
     if(invoke) stop("Type.Mismatch: Got '", actual, "' but expected '", expected, "'.", call. = FALSE)
   }
   exceptions[['Value.Invalid']]      <- \() { }
-  exceptions[['Argument.NULL']]      <- \() { }
+  exceptions[['Argument.NULL']]      <- \(invoke, argument) {
+    if(invoke) stop("Argument.NULL: '", argument, "' cannot not be NULL.", call. = FALSE)
+  }
   exceptions[['Entity.Invalid']]     <- \() { }
   exceptions[['Entity.NotFound']]    <- \() { }
   exceptions[['Entity.Exists']]      <- \() { }
