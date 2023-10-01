@@ -274,3 +274,29 @@ describe("When input |> validate[['Has.One.Row']]()",{
     input |> validate[['Has.One.Row']]() |> expect.equal(input)
   })
 })
+
+describe("When input |> validate[['Is.UUID']]()",{
+  it("then no exception is thrown if input is UUID",{
+    # Given
+    validate <- Validator()
+    
+    # When
+    input <- uuid::UUIDgenerate()  
+    
+    # Then
+    input |> validate[['Is.UUID']]() |> expect.no.error()
+  })
+  it("then an exception is thrown if input is not UUID",{
+    # Given
+    validate <- Validator()
+    
+    identifier <- 'identifier'
+    expected.error <- paste0("Identifier.Invalid: '",identifier,"' is not a valid UUID.")
+    
+    # When
+    input <- '123' 
+    
+    # Then
+    input |> validate[['Is.UUID']](identifier) |> expect.error(expected.error)
+  })
+})
