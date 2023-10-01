@@ -12,6 +12,7 @@ Validator <- \() {
   }
   validators[['Is.Character']]  <- \(input) {
     input |> is.character() |> isFALSE() |> exception[['Type.Mismatch']](input |> class(), 'character')
+    return(input)
   }
   validators[['Is.Empty']]      <- \() {}
   validators[['Is.Not.Empty']]  <- \() {}
