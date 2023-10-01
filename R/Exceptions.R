@@ -1,1 +1,4 @@
-Exceptions <- \() {}
+Exceptions <- \() {
+  exceptions <- list()
+  return(exceptions)
+}
