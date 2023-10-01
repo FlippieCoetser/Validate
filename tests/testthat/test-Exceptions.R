@@ -76,3 +76,30 @@ describe('When exceptions <- Exceptions()',{
     exceptions[['Identifier.Exists']] |> expect.exist()
   })
 })
+
+describe("When input |> exception[['Type.Mismatch']]()", {
+  it("then no exception is thrown if input is FALSE", {
+    # Given
+    exception <- Exceptions()
+    
+    # When
+    input <- FALSE
+    
+    # Then
+    input |> exception[['Type.Mismatch']]() |> expect.no.error()
+  })
+  it("then an exception is thrown if input is TRUE", {
+    # Given
+    exception <- Exceptions()
+    
+    expected <- 'expected'
+    actual   <- 'actual'
+
+    expected.error <- paste0("Type.Mismatch: Got '", actual, "' but expected '", expected, "'.")
+    # When
+    input <- TRUE
+    
+    # Then
+    input |> exception[['Type.Mismatch']](actual, expected) |> expect.error(expected.error)
+  })
+})
