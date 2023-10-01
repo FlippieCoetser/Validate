@@ -22,6 +22,7 @@ Validator <- \() {
   validators[['Is.Not.Empty']]  <- \(input) {
     actual.rows <- input |> nrow()
     actual.rows |> (\(x) x == 0)() |> isTRUE() |> exception[['Rows.Invalid']](actual.rows,'>0')
+    return(input)
   }
   validators[['Has.One.Row']]   <- \() {}
   validators[['Is.UUID']]       <- \() {}
