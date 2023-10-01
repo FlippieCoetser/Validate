@@ -47,4 +47,11 @@ describe("When validators <- Validator()",{
     # Then
     validators[['Is.Not.Empty']] |> expect.exist()
   })
+  it('then validators contains Is.UUID',{
+    # When
+    validators <- Validator()
+
+    # Then
+    validators[['Is.UUID']] |> expect.exist()
+  })
 })
