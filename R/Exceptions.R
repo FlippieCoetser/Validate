@@ -9,5 +9,6 @@ Exceptions <- \() {
   exceptions[['Entity.Exists']]      <- \() { }
   exceptions[['Rows.Invalid']]       <- \() { }
   exceptions[['Identifier.Invalid']] <- \() { }
+  exceptions[['Identifier.Exists']]  <- \() { }
   return(exceptions)
 }
