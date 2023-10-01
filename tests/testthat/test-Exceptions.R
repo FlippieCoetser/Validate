@@ -154,3 +154,29 @@ describe("When input |> exception[['Rows.Invalid']]()", {
     input |> exception[['Rows.Invalid']](actual, expected) |> expect.error(expected.error)
   })
 })
+
+describe("When input |> exception[['Identifier.Invalid']]()", {
+  it("then no exception is thrown if input is FALSE", {
+    # Given
+    exception <- Exceptions()
+    
+    # When
+    input <- FALSE
+    
+    # Then
+    input |> exception[['Identifier.Invalid']]() |> expect.no.error()
+  })
+  it("then an exception is thrown if input is TRUE", {
+    # Given
+    exception <- Exceptions()
+    
+    identifier <- 'identifier'
+    expected.error <- paste0("Identifier.Invalid: '", identifier, "' is not a valid UUID.")
+
+    # When
+    input <- TRUE
+    
+    # Then
+    input |> exception[['Identifier.Invalid']](identifier) |> expect.error(expected.error)
+  })
+})
