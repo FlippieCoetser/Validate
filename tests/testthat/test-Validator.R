@@ -62,3 +62,30 @@ describe("When validators <- Validator()",{
     validators[['Is.UUID']] |> expect.exist()
   })
 })
+
+describe("When input |> validate[['Is.Not.NULL']]()",{
+  it("then no exception is thrown if input is not NULL",{
+    # Given
+    validate <- Validator()
+    
+    # When
+    input <- ''
+    
+    # Then
+    input |> validate[['Is.Not.NULL']]() |> expect.no.error()
+  })
+  it("then an exception is thrown if input is NULL",{
+    # Given
+    validate <- Validator()
+
+    argument <- 'input'
+    
+    expected.error <- paste0("Argument.NULL: '",argument,"' cannot not be NULL.")
+    
+    # When
+    input <- NULL 
+    
+    # Then
+    input |> validate[['Is.Not.NULL']](argument) |> expect.error(expected.error)
+  })
+})
