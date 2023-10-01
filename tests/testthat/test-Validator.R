@@ -4,12 +4,19 @@ describe('Validator',{
   })
 })
 
-describe("When validations <- Validator()",{
-  it('then validations is a list',{
+describe("When validators <- Validator()",{
+  it('then validators is a list',{
     # When
-    validations <- Validator()
+    validators <- Validator()
 
     # Then
-    validations |> expect.list()
+    validators |> expect.list()
+  })
+  it('then validators contains Is.Not.NULL',{
+    # When
+    validators <- Validator()
+
+    # Then
+    validators[['Is.Not.NULL']] |> expect.exist()
   })
 })
