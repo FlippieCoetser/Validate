@@ -68,4 +68,11 @@ describe('When exceptions <- Exceptions()',{
     # Then
     exceptions[['Rows.Invalid']] |> expect.exist()
   })
+  it('then exceptions contains Identifier.Invalid',{
+    # When
+    exceptions <- Exceptions()
+
+    # Then
+    exceptions[['Identifier.Invalid']] |> expect.exist()
+  })
 })
