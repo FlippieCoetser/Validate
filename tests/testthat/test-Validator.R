@@ -169,3 +169,28 @@ describe("When input |> validate[['Is.Character']]()",{
     input |> validate[['Is.Character']]() |> expect.equal(input)
   })
 })
+
+describe("When input |> validate[['Is.Empty']]()",{
+  it("then no exception is thrown if input is empty",{
+    # Given
+    validate <- Validator()
+    
+    # When
+    input <- data.frame()  
+    
+    # Then
+    input |> validate[['Is.Empty']]() |> expect.no.error()
+  })
+  it("then an exception is thrown if input is not empty",{
+    # Given
+    validate <- Validator()
+    
+    expected.error <- "Rows.Invalid: Got 1 rows but expected 0 rows."
+    
+    # When
+    input <- data.frame(var = 1) 
+    
+    # Then
+    input |> validate[['Is.Empty']]() |> expect.error(expected.error)
+  })
+})
