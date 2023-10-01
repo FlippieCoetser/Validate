@@ -40,4 +40,11 @@ describe("When validators <- Validator()",{
     # Then
     validators[['Is.Empty']] |> expect.exist()
   })
+  it('then validators contains Is.Not.Empty',{
+    # When
+    validators <- Validator()
+
+    # Then
+    validators[['Is.Not.Empty']] |> expect.exist()
+  })
 })
