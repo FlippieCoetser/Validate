@@ -54,4 +54,11 @@ describe('When exceptions <- Exceptions()',{
     # Then
     exceptions[['Entity.NotFound']] |> expect.exist()
   })
+  it('then exceptions contains Entity.Exists',{
+    # When
+    exceptions <- Exceptions()
+
+    # Then
+    exceptions[['Entity.Exists']] |> expect.exist()
+  })
 })
