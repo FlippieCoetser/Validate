@@ -228,4 +228,14 @@ describe("When input |> validate[['Is.Not.Empty']]()",{
     # Then
     input |> validate[['Is.Not.Empty']]() |> expect.error(expected.error)
   })
+  it("then input is returned if input is not empty",{
+    # Given
+    validate <- Validator()
+    
+    # When
+    input <- data.frame(var = 1)  
+    
+    # Then
+    input |> validate[['Is.Not.Empty']]() |> expect.equal(input)
+  })
 })
