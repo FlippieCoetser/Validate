@@ -1,5 +1,5 @@
-Package: R.Template
-Title: Package Tile
+Package: Validate
+Title: Generic Validations
 Version: 0.0.1.0000
 Authors@R: 
     person(given = "Flippie",
@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "Flippie.Coetser@gmail.com",
            comment = c(ORCID = "0000-0003-0549-9245"))
-Description: Packge Description.
+Description: Generic set of Validations and Exceptions used by most packages.
 License: file LICENSE
 Encoding: UTF-8
 LazyData: true
