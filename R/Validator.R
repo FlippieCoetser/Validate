@@ -1,1 +1,4 @@
-Validator <- \() {}
+Validator <- \() {
+  validators <- list()
+  return(validators)
+}
