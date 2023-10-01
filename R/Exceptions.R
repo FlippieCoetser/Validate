@@ -1,6 +1,8 @@
 Exceptions <- \() {
   exceptions <- list()
-  exceptions[['Type.Mismatch']]      <- \() { }
+  exceptions[['Type.Mismatch']]      <- \(invoke, actual, expected) {
+    if(invoke) stop("Type.Mismatch: Got '", actual, "' but expected '", expected, "'.", call. = FALSE)
+  }
   exceptions[['Value.Invalid']]      <- \() { }
   exceptions[['Value.NULL']]         <- \() { }
   exceptions[['Entity.Invalid']]     <- \() { }
