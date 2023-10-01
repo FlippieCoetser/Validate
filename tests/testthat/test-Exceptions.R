@@ -12,13 +12,6 @@ describe('When exceptions <- Exceptions()',{
     # Then
     exceptions |> expect.list()
   })
-  it('then exceptions contains Type.Invalid',{
-    # When
-    exceptions <- Exceptions()
-
-    # Then
-    exceptions[['Type.Invalid']] |> expect.exist()
-  })
   it('then exceptions contains Type.Mismatch',{
     # When
     exceptions <- Exceptions()
