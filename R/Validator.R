@@ -10,7 +10,9 @@ Validator <- \() {
     input |> is.data.frame() |> isFALSE() |> exception[['Type.Mismatch']](input |> class(), 'data.frame')
     return(input)
   }
-  validators[['Is.Character']]  <- \() {}
+  validators[['Is.Character']]  <- \(input) {
+    input |> is.character() |> isFALSE() |> exception[['Type.Mismatch']](input |> class(), 'character')
+  }
   validators[['Is.Empty']]      <- \() {}
   validators[['Is.Not.Empty']]  <- \() {}
   validators[['Has.One.Row']]   <- \() {}
