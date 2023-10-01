@@ -63,7 +63,7 @@ describe("When validators <- Validator()",{
   })
 })
 
-describe("When input |> validate[['Is.Not.NULL']]()",{
+describe("When input |> validate[['Is.Not.NULL']](argument)",{
   it("then no exception is thrown if input is not NULL",{
     # Given
     validate <- Validator()
@@ -87,5 +87,15 @@ describe("When input |> validate[['Is.Not.NULL']]()",{
     
     # Then
     input |> validate[['Is.Not.NULL']](argument) |> expect.error(expected.error)
+  })
+  it('then input is returned if input is not NULL',{
+    # Given
+    validate <- Validator()
+    
+    # When
+    input <- ''
+    
+    # Then
+    input |> validate[['Is.Not.NULL']]() |> expect.equal(input)
   })
 })
