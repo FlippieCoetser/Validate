@@ -29,6 +29,9 @@ Validator <- \() {
     actual.rows |> (\(x) x == 1)() |> isFALSE() |> exception[['Rows.Invalid']](actual.rows,1)
     return(input)
   }
-  validators[['Is.UUID']]       <- \() {}
+  validators[['Is.UUID']]       <- \(input, identifier) {
+    pattern <- "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+    pattern |> grepl(input) |> isFALSE() |> exception[['Identifier.Invalid']](identifier)
+  }
   return(validators)
 }
