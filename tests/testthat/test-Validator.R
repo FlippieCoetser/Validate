@@ -26,4 +26,11 @@ describe("When validators <- Validator()",{
     # Then
     validators[['Is.Data.Frame']] |> expect.exist()
   })
+  it('then validators contains Is.Character',{
+    # When
+    validators <- Validator()
+
+    # Then
+    validators[['Is.Character']] |> expect.exist()
+  })
 })
