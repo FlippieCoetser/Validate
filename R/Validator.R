@@ -1,3 +1,18 @@
+#' Validator'
+#' 
+#' @description
+#' Validator which returns a generic set of validators and accompanied exceptions.
+#'  
+#' @usage NULL
+#' @returns a list value: 
+#' * `input |> validate[['Is.Not.NULL']](argument)`
+#' * `input |> validate[['Is.Data.Frame']]()`
+#' * `input |> validate[['Is.Character']]()`
+#' * `input |> validate[['Is.Empty']]()`
+#' * `input |> validate[['Is.Not.Empty']]()`
+#' * `input |> validate[['Has.One.Row']]()`
+#' * `input |> validate[['Is.UUID']](identifier)`
+#' @export
 Validator <- \() {
   exception <- Exceptions()
 
