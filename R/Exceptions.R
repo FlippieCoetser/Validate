@@ -13,7 +13,9 @@ Exceptions <- \() {
   exceptions[['Rows.Invalid']]       <- \(invoke, actual, expected) {
     if(invoke) stop("Rows.Invalid: Got ", actual, " rows but expected ", expected, " rows.", call. = FALSE)
   }
-  exceptions[['Identifier.Invalid']] <- \() { } 
+  exceptions[['Identifier.Invalid']] <- \(invoke, identifier) {
+    if(invoke) stop("Identifier.Invalid: '", identifier, "' is not a valid UUID.", call. = FALSE)
+  } 
   exceptions[['Identifier.Exists']]  <- \() { }
   return(exceptions)
 }
