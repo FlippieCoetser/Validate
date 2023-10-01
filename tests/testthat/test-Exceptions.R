@@ -128,3 +128,29 @@ describe("When input |> exception[['Argument.NULL']]()", {
     input |> exception[['Argument.NULL']](argument) |> expect.error(expected.error)
   })
 })
+
+describe("When input |> exception[['Rows.Invalid']]()", {
+  it("then no exception is thrown if input is FALSE", {
+    # Given
+    exception <- Exceptions()
+    
+    # When
+    input <- FALSE
+    
+    # Then
+    input |> exception[['Rows.Invalid']]() |> expect.no.error()
+  })
+  it("then an exception is thrown if input is TRUE", {
+    # Given
+    exception <- Exceptions()
+    
+    actual  <- 1
+    expected <- 0
+    expected.error <- paste0("Rows.Invalid: Got ", actual, " rows but expected ", expected, " rows.")
+    # When
+    input <- TRUE
+    
+    # Then
+    input |> exception[['Rows.Invalid']](actual, expected) |> expect.error(expected.error)
+  })
+})
