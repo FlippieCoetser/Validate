@@ -10,8 +10,10 @@ Exceptions <- \() {
   exceptions[['Entity.Invalid']]     <- \() { }
   exceptions[['Entity.NotFound']]    <- \() { }
   exceptions[['Entity.Exists']]      <- \() { }
-  exceptions[['Rows.Invalid']]       <- \() { }
-  exceptions[['Identifier.Invalid']] <- \() { }
+  exceptions[['Rows.Invalid']]       <- \(invoke, actual, expected) {
+    if(invoke) stop("Rows.Invalid: Got ", actual, " rows but expected ", expected, " rows.", call. = FALSE)
+  }
+  exceptions[['Identifier.Invalid']] <- \() { } 
   exceptions[['Identifier.Exists']]  <- \() { }
   return(exceptions)
 }
