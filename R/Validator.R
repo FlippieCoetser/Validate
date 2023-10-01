@@ -17,6 +17,7 @@ Validator <- \() {
   validators[['Is.Empty']]      <- \(input) {
     actual.rows <- input |> nrow()
     actual.rows |> (\(x) x == 0)() |> isFALSE() |> exception[['Rows.Invalid']](actual.rows,0)
+    return(input)
   }
   validators[['Is.Not.Empty']]  <- \() {}
   validators[['Has.One.Row']]   <- \() {}
