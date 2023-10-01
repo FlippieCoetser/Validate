@@ -99,3 +99,28 @@ describe("When input |> validate[['Is.Not.NULL']](argument)",{
     input |> validate[['Is.Not.NULL']]() |> expect.equal(input)
   })
 })
+
+describe("When input |> validate[['Is.Data.Frame']]()",{
+  it("then no exception is thrown if input is data.frame",{
+    # Given
+    validate <- Validator()
+    
+    # When
+    input <- data.frame()  
+    
+    # Then
+    input |> validate[['Is.Data.Frame']]() |> expect.no.error()
+  })
+  it("then an exception is thrown if input is not data.frame",{
+    # Given
+    validate <- Validator()
+    
+    expected.error <- "Type.Mismatch: Got 'list' but expected 'data.frame'."
+    
+    # When
+    input <- list() 
+    
+    # Then
+    input |> validate[['Is.Data.Frame']]() |> expect.error(expected.error)
+  })
+})
