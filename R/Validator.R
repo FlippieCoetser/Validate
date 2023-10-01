@@ -5,5 +5,6 @@ Validator <- \() {
   validators[['Is.Character']]  <- \() {}
   validators[['Is.Empty']]      <- \() {}
   validators[['Is.Not.Empty']]  <- \() {}
+  validators[['Is.UUID']]       <- \() {}
   return(validators)
 }
