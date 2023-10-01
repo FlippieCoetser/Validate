@@ -123,4 +123,14 @@ describe("When input |> validate[['Is.Data.Frame']]()",{
     # Then
     input |> validate[['Is.Data.Frame']]() |> expect.error(expected.error)
   })
+  it('then input is returned if input is data.frame',{
+    # Given
+    validate <- Validator()
+    
+    # When
+    input <- data.frame()  
+    
+    # Then
+    input |> validate[['Is.Data.Frame']]() |> expect.equal(input)
+  })
 })
