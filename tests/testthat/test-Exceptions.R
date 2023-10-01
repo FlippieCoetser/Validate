@@ -5,7 +5,7 @@ describe('Exceptions',{
 })
 
 describe('When exceptions <- Exceptions()',{
-  it('then exceptions is a lis',{
+  it('then exceptions is a list',{
     # When
     exceptions <- Exceptions()
 
