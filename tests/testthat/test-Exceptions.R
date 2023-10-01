@@ -40,4 +40,11 @@ describe('When exceptions <- Exceptions()',{
     # Then
     exceptions[['Value.NULL']] |> expect.exist()
   })
+  it('then exceptions contains Entity.Invalid',{
+    # When
+    exceptions <- Exceptions()
+
+    # Then
+    exceptions[['Entity.Invalid']] |> expect.exist()
+  })
 })
