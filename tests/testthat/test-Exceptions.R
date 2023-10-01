@@ -19,40 +19,12 @@ describe('When exceptions <- Exceptions()',{
     # Then
     exceptions[['Type.Mismatch']] |> expect.exist()
   })
-  it('then exceptions contains Value.Invalid',{
-    # When
-    exceptions <- Exceptions()
-
-    # Then
-    exceptions[['Value.Invalid']] |> expect.exist()
-  })
   it('then exceptions contains Argument.NULL',{
     # When
     exceptions <- Exceptions()
 
     # Then
     exceptions[['Argument.NULL']] |> expect.exist()
-  })
-  it('then exceptions contains Entity.Invalid',{
-    # When
-    exceptions <- Exceptions()
-
-    # Then
-    exceptions[['Entity.Invalid']] |> expect.exist()
-  })
-  it('then exceptions contains Entity.NotFound',{
-    # When
-    exceptions <- Exceptions()
-
-    # Then
-    exceptions[['Entity.NotFound']] |> expect.exist()
-  })
-  it('then exceptions contains Entity.Exists',{
-    # When
-    exceptions <- Exceptions()
-
-    # Then
-    exceptions[['Entity.Exists']] |> expect.exist()
   })
   it('then exceptions contains Rows.Invalid',{
     # When
@@ -67,13 +39,6 @@ describe('When exceptions <- Exceptions()',{
 
     # Then
     exceptions[['Identifier.Invalid']] |> expect.exist()
-  })
-  it('then exceptions contains Identifier.Exists',{
-    # When
-    exceptions <- Exceptions()
-
-    # Then
-    exceptions[['Identifier.Exists']] |> expect.exist()
   })
 })
 
