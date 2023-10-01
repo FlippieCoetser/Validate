@@ -134,3 +134,28 @@ describe("When input |> validate[['Is.Data.Frame']]()",{
     input |> validate[['Is.Data.Frame']]() |> expect.equal(input)
   })
 })
+
+describe("When input |> validate[['Is.Character']]()",{
+  it("then no exception is thrown if input is character",{
+    # Given
+    validate <- Validator()
+    
+    # When
+    input <- ''  
+    
+    # Then
+    input |> validate[['Is.Character']]() |> expect.no.error()
+  })
+  it("then an exception is thrown if input is not character",{
+    # Given
+    validate <- Validator()
+    
+    expected.error <- "Type.Mismatch: Got 'numeric' but expected 'character'."
+    
+    # When
+    input <- 1 
+    
+    # Then
+    input |> validate[['Is.Character']]() |> expect.error(expected.error)
+  })
+})
