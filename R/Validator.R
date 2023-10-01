@@ -4,6 +4,7 @@ Validator <- \() {
   validators <- list()
   validators[['Is.Not.NULL']]   <- \(input, argument) {
     input |> is.null() |> exception[['Argument.NULL']](argument)
+    return(input)
   }
   validators[['Is.Data.Frame']] <- \() {}
   validators[['Is.Character']]  <- \() {}
