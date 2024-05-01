@@ -6,13 +6,13 @@
 \value{
 a list value:
 \itemize{
-\item \code{input |> validate[['Is.Not.NULL']](argument)}
-\item \code{input |> validate[['Is.Data.Frame']]()}
-\item \code{input |> validate[['Is.Character']]()}
-\item \code{input |> validate[['Is.Empty']]()}
-\item \code{input |> validate[['Is.Not.Empty']]()}
-\item \code{input |> validate[['Has.One.Row']]()}
-\item \code{input |> validate[['Is.UUID']](identifier)}
+\item \code{input |> validate[['is.not.NULL']](argument)}
+\item \code{input |> validate[['is.data.frame']]()}
+\item \code{input |> validate[['is.character']]()}
+\item \code{input |> validate[['is.empty']]()}
+\item \code{input |> validate[['is.not.empty']]()}
+\item \code{input |> validate[['has.one.row']]()}
+\item \code{input |> validate[['is.UUID']](identifier)}
 }
 }
 \description{
