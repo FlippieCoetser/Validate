@@ -5,48 +5,48 @@
 #'  
 #' @usage NULL
 #' @returns a list value: 
-#' * `input |> validate[['Is.Not.NULL']](argument)`
-#' * `input |> validate[['Is.Data.Frame']]()`
-#' * `input |> validate[['Is.Character']]()`
-#' * `input |> validate[['Is.Empty']]()`
-#' * `input |> validate[['Is.Not.Empty']]()`
-#' * `input |> validate[['Has.One.Row']]()`
-#' * `input |> validate[['Is.UUID']](identifier)`
+#' * `input |> validate[['is.not.NULL']](argument)`
+#' * `input |> validate[['is.data.frame']]()`
+#' * `input |> validate[['is.character']]()`
+#' * `input |> validate[['is.empty']]()`
+#' * `input |> validate[['is.not.empty']]()`
+#' * `input |> validate[['has.one.row']]()`
+#' * `input |> validate[['is.UUID']](identifier)`
 #' @export
 Validator <- \() {
   exception <- Exceptions()
 
   validators <- list()
-  validators[['Is.Not.NULL']]   <- \(input, argument) {
-    input |> is.null() |> exception[['Argument.NULL']](argument)
+  validators[['is.not.NULL']]   <- \(input, argument) {
+    input |> is.null() |> exception[['argument.NULL']](argument)
     return(input)
   }
-  validators[['Is.Data.Frame']] <- \(input) {
-    input |> is.data.frame() |> isFALSE() |> exception[['Type.Mismatch']](input |> class(), 'data.frame')
+  validators[['is.data.frame']] <- \(input) {
+    input |> is.data.frame() |> isFALSE() |> exception[['type.mismatch']](input |> class(), 'data.frame')
     return(input)
   }
-  validators[['Is.Character']]  <- \(input) {
-    input |> is.character() |> isFALSE() |> exception[['Type.Mismatch']](input |> class(), 'character')
+  validators[['is.character']]  <- \(input) {
+    input |> is.character() |> isFALSE() |> exception[['type.mismatch']](input |> class(), 'character')
     return(input)
   }
-  validators[['Is.Empty']]      <- \(input) {
+  validators[['is.empty']]      <- \(input) {
     actual.rows <- input |> nrow()
-    actual.rows |> (\(x) x == 0)() |> isFALSE() |> exception[['Rows.Invalid']](actual.rows,0)
+    actual.rows |> (\(x) x == 0)() |> isFALSE() |> exception[['rows.invalid']](actual.rows,0)
     return(input)
   }
-  validators[['Is.Not.Empty']]  <- \(input) {
+  validators[['is.not.empty']]  <- \(input) {
     actual.rows <- input |> nrow()
-    actual.rows |> (\(x) x == 0)() |> isTRUE() |> exception[['Rows.Invalid']](actual.rows,'>0')
+    actual.rows |> (\(x) x == 0)() |> isTRUE() |> exception[['rows.invalid']](actual.rows,'>0')
     return(input)
   }
-  validators[['Has.One.Row']]   <- \(input) {
+  validators[['has.one.row']]   <- \(input) {
     actual.rows <- input |> nrow()
-    actual.rows |> (\(x) x == 1)() |> isFALSE() |> exception[['Rows.Invalid']](actual.rows,1)
+    actual.rows |> (\(x) x == 1)() |> isFALSE() |> exception[['rows.invalid']](actual.rows,1)
     return(input)
   }
-  validators[['Is.UUID']]       <- \(input, identifier) {
+  validators[['is.UUID']]       <- \(input, identifier) {
     pattern <- "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
-    pattern |> grepl(input) |> isFALSE() |> exception[['Identifier.Invalid']](identifier)
+    pattern |> grepl(input) |> isFALSE() |> exception[['identifier.invalid']](identifier)
     return(input)
   }
   return(validators)

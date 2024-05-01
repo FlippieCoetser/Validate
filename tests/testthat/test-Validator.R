@@ -12,58 +12,58 @@ describe("When validators <- Validator()",{
     # Then
     validators |> expect.list()
   })
-  it('then validators contains Is.Not.NULL',{
+  it('then validators contains is.not.NULL',{
     # When
     validators <- Validator()
 
     # Then
-    validators[['Is.Not.NULL']] |> expect.exist()
+    validators[['is.not.NULL']] |> expect.exist()
   })
-  it('then validators contains Is.Data.Frame',{
+  it('then validators contains is.data.frame',{
     # When
     validators <- Validator()
 
     # Then
-    validators[['Is.Data.Frame']] |> expect.exist()
+    validators[['is.data.frame']] |> expect.exist()
   })
-  it('then validators contains Is.Character',{
+  it('then validators contains is.character',{
     # When
     validators <- Validator()
 
     # Then
-    validators[['Is.Character']] |> expect.exist()
+    validators[['is.character']] |> expect.exist()
   })
-  it('then validators contains Is.Empty',{
+  it('then validators contains is.empty',{
     # When
     validators <- Validator()
 
     # Then
-    validators[['Is.Empty']] |> expect.exist()
+    validators[['is.empty']] |> expect.exist()
   })
-  it('then validators contains Is.Not.Empty',{
+  it('then validators contains is.not.empty',{
     # When
     validators <- Validator()
 
     # Then
-    validators[['Is.Not.Empty']] |> expect.exist()
+    validators[['is.not.empty']] |> expect.exist()
   })
-  it('then validators contains Has.One.Row',{
+  it('then validators contains has.one.row',{
     # When
     validators <- Validator()
 
     # Then
-    validators[['Has.One.Row']] |> expect.exist()
+    validators[['has.one.row']] |> expect.exist()
   })
-  it('then validators contains Is.UUID',{
+  it('then validators contains is.UUID',{
     # When
     validators <- Validator()
 
     # Then
-    validators[['Is.UUID']] |> expect.exist()
+    validators[['is.UUID']] |> expect.exist()
   })
 })
 
-describe("When input |> validate[['Is.Not.NULL']](argument)",{
+describe("When input |> validate[['is.not.NULL']](argument)",{
   it("then no exception is thrown if input is not NULL",{
     # Given
     validate <- Validator()
@@ -72,7 +72,7 @@ describe("When input |> validate[['Is.Not.NULL']](argument)",{
     input <- ''
     
     # Then
-    input |> validate[['Is.Not.NULL']]() |> expect.no.error()
+    input |> validate[['is.not.NULL']]() |> expect.no.error()
   })
   it("then an exception is thrown if input is NULL",{
     # Given
@@ -86,7 +86,7 @@ describe("When input |> validate[['Is.Not.NULL']](argument)",{
     input <- NULL 
     
     # Then
-    input |> validate[['Is.Not.NULL']](argument) |> expect.error(expected.error)
+    input |> validate[['is.not.NULL']](argument) |> expect.error(expected.error)
   })
   it('then input is returned if input is not NULL',{
     # Given
@@ -96,11 +96,11 @@ describe("When input |> validate[['Is.Not.NULL']](argument)",{
     input <- ''
     
     # Then
-    input |> validate[['Is.Not.NULL']]() |> expect.equal(input)
+    input |> validate[['is.not.NULL']]() |> expect.equal(input)
   })
 })
 
-describe("When input |> validate[['Is.Data.Frame']]()",{
+describe("When input |> validate[['is.data.frame']]()",{
   it("then no exception is thrown if input is data.frame",{
     # Given
     validate <- Validator()
@@ -109,7 +109,7 @@ describe("When input |> validate[['Is.Data.Frame']]()",{
     input <- data.frame()  
     
     # Then
-    input |> validate[['Is.Data.Frame']]() |> expect.no.error()
+    input |> validate[['is.data.frame']]() |> expect.no.error()
   })
   it("then an exception is thrown if input is not data.frame",{
     # Given
@@ -121,7 +121,7 @@ describe("When input |> validate[['Is.Data.Frame']]()",{
     input <- list() 
     
     # Then
-    input |> validate[['Is.Data.Frame']]() |> expect.error(expected.error)
+    input |> validate[['is.data.frame']]() |> expect.error(expected.error)
   })
   it('then input is returned if input is data.frame',{
     # Given
@@ -131,11 +131,11 @@ describe("When input |> validate[['Is.Data.Frame']]()",{
     input <- data.frame()  
     
     # Then
-    input |> validate[['Is.Data.Frame']]() |> expect.equal(input)
+    input |> validate[['is.data.frame']]() |> expect.equal(input)
   })
 })
 
-describe("When input |> validate[['Is.Character']]()",{
+describe("When input |> validate[['is.character']]()",{
   it("then no exception is thrown if input is character",{
     # Given
     validate <- Validator()
@@ -144,7 +144,7 @@ describe("When input |> validate[['Is.Character']]()",{
     input <- ''  
     
     # Then
-    input |> validate[['Is.Character']]() |> expect.no.error()
+    input |> validate[['is.character']]() |> expect.no.error()
   })
   it("then an exception is thrown if input is not character",{
     # Given
@@ -156,7 +156,7 @@ describe("When input |> validate[['Is.Character']]()",{
     input <- 1 
     
     # Then
-    input |> validate[['Is.Character']]() |> expect.error(expected.error)
+    input |> validate[['is.character']]() |> expect.error(expected.error)
   })
   it("then input is returned if input is character",{
     # Given
@@ -166,11 +166,11 @@ describe("When input |> validate[['Is.Character']]()",{
     input <- ''  
     
     # Then
-    input |> validate[['Is.Character']]() |> expect.equal(input)
+    input |> validate[['is.character']]() |> expect.equal(input)
   })
 })
 
-describe("When input |> validate[['Is.Empty']]()",{
+describe("When input |> validate[['is.empty']]()",{
   it("then no exception is thrown if input is empty",{
     # Given
     validate <- Validator()
@@ -179,7 +179,7 @@ describe("When input |> validate[['Is.Empty']]()",{
     input <- data.frame()  
     
     # Then
-    input |> validate[['Is.Empty']]() |> expect.no.error()
+    input |> validate[['is.empty']]() |> expect.no.error()
   })
   it("then an exception is thrown if input is not empty",{
     # Given
@@ -191,7 +191,7 @@ describe("When input |> validate[['Is.Empty']]()",{
     input <- data.frame(var = 1) 
     
     # Then
-    input |> validate[['Is.Empty']]() |> expect.error(expected.error)
+    input |> validate[['is.empty']]() |> expect.error(expected.error)
   })
   it("then input is returned if input is empty",{
     # Given
@@ -201,11 +201,11 @@ describe("When input |> validate[['Is.Empty']]()",{
     input <- data.frame()  
     
     # Then
-    input |> validate[['Is.Empty']]() |> expect.equal(input)
+    input |> validate[['is.empty']]() |> expect.equal(input)
   })
 })
 
-describe("When input |> validate[['Is.Not.Empty']]()",{
+describe("When input |> validate[['is.not.empty']]()",{
   it("then no exception is thrown if input is not empty",{
     # Given
     validate <- Validator()
@@ -214,7 +214,7 @@ describe("When input |> validate[['Is.Not.Empty']]()",{
     input <- data.frame(var = 1)  
     
     # Then
-    input |> validate[['Is.Not.Empty']]() |> expect.no.error()
+    input |> validate[['is.not.empty']]() |> expect.no.error()
   })
   it("then an exception is thrown if input is empty",{
     # Given
@@ -226,7 +226,7 @@ describe("When input |> validate[['Is.Not.Empty']]()",{
     input <- data.frame() 
     
     # Then
-    input |> validate[['Is.Not.Empty']]() |> expect.error(expected.error)
+    input |> validate[['is.not.empty']]() |> expect.error(expected.error)
   })
   it("then input is returned if input is not empty",{
     # Given
@@ -236,11 +236,11 @@ describe("When input |> validate[['Is.Not.Empty']]()",{
     input <- data.frame(var = 1)  
     
     # Then
-    input |> validate[['Is.Not.Empty']]() |> expect.equal(input)
+    input |> validate[['is.not.empty']]() |> expect.equal(input)
   })
 })
 
-describe("When input |> validate[['Has.One.Row']]()",{
+describe("When input |> validate[['has.one.row']]()",{
   it("then no exception is thrown if input has one row",{
     # Given
     validate <- Validator()
@@ -249,7 +249,7 @@ describe("When input |> validate[['Has.One.Row']]()",{
     input <- data.frame(var = 1)  
     
     # Then
-    input |> validate[['Has.One.Row']]() |> expect.no.error()
+    input |> validate[['has.one.row']]() |> expect.no.error()
   })
   it("then an exception is thrown if input does not have one row",{
     # Given
@@ -261,7 +261,7 @@ describe("When input |> validate[['Has.One.Row']]()",{
     input <- data.frame(var = 1:2) 
     
     # Then
-    input |> validate[['Has.One.Row']]() |> expect.error(expected.error)
+    input |> validate[['has.one.row']]() |> expect.error(expected.error)
   })
   it("then input is returned if input has one row",{
     # Given
@@ -271,11 +271,11 @@ describe("When input |> validate[['Has.One.Row']]()",{
     input <- data.frame(var = 1)  
     
     # Then
-    input |> validate[['Has.One.Row']]() |> expect.equal(input)
+    input |> validate[['has.one.row']]() |> expect.equal(input)
   })
 })
 
-describe("When input |> validate[['Is.UUID']]()",{
+describe("When input |> validate[['is.UUID']]()",{
   it("then no exception is thrown if input is UUID",{
     # Given
     validate <- Validator()
@@ -284,7 +284,7 @@ describe("When input |> validate[['Is.UUID']]()",{
     input <- uuid::UUIDgenerate()  
     
     # Then
-    input |> validate[['Is.UUID']]() |> expect.no.error()
+    input |> validate[['is.UUID']]() |> expect.no.error()
   })
   it("then an exception is thrown if input is not UUID",{
     # Given
@@ -297,7 +297,7 @@ describe("When input |> validate[['Is.UUID']]()",{
     input <- '123' 
     
     # Then
-    input |> validate[['Is.UUID']](identifier) |> expect.error(expected.error)
+    input |> validate[['is.UUID']](identifier) |> expect.error(expected.error)
   })
   it("then input is returned if input is UUID",{
     # Given
@@ -307,6 +307,6 @@ describe("When input |> validate[['Is.UUID']]()",{
     input <- uuid::UUIDgenerate()  
     
     # Then
-    input |> validate[['Is.UUID']]() |> expect.equal(input)
+    input |> validate[['is.UUID']]() |> expect.equal(input)
   })
 })
